@@ -9,10 +9,10 @@ modules:
 
     config:
         WebDriver:
-            url: 'https://vanya:43terminal59Pass@dev1.cadencewatch.com:8131'
+            url: 'https://cadencewatch.com'
 
 
-      # run in browserstack
+            # run in browserstack
 
             #host: 'hub.browserstack.com'
             #port: 80
@@ -32,74 +32,4 @@ modules:
              #platform: 'XP'
 
 
-    # run all instance
-env:
-    INST_8153:
 
-
-    INST_8130:
-        modules:
-            config:
-                WebDriver:
-                  url: 'https://vanya:43terminal59Pass@dev1.cadencewatch.com:8130'
-
-    INST_8131:
-        modules:
-            config:
-                WebDriver:
-                  url: 'https://vanya:43terminal59Pass@dev1.cadencewatch.com:8131'
-
-    INST_8142:
-        modules:
-            config:
-                WebDriver:
-                  url: 'https://vanya:43terminal59Pass@dev1.cadencewatch.com:8142'
-
-    INST_8144:
-        modules:
-            config:
-                WebDriver:
-                  url: 'https://vanya:43terminal59Pass@dev1.cadencewatch.com:8144'
-
-    INST_8145:
-        modules:
-            config:
-                WebDriver:
-                  url: 'https://vanya:43terminal59Pass@dev1.cadencewatch.com:8145'
-
-    INST_8147:
-        modules:
-            config:
-                WebDriver:
-                  url: 'https://vanya:43terminal59Pass@dev1.cadencewatch.com:8147'
-
-    INST_8149:
-        modules:
-            config:
-                WebDriver:
-                  url: 'https://vanya:43terminal59Pass@dev1.cadencewatch.com:8149'
-
-    INST_8150:
-        modules:
-            config:
-                WebDriver:
-                  url: 'https://vanya:43terminal59Pass@dev1.cadencewatch.com:8150'
-
-    INST_8137:
-        modules:
-            config:
-                WebDriver:
-                  url: 'https://vanya:43terminal59Pass@dev1.cadencewatch.com:8137'
-
-
-    INST_8146:
-            modules:
-                config:
-                    WebDriver:
-                      url: 'https://vanya:43terminal59Pass@dev1.cadencewatch.com:8146'
-
-    INST_PROD:
-        modules:
-            config:
-                WebDriver:
-                  url: 'https://cadencewatch.com'
