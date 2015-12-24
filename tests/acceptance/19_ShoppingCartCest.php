@@ -12,10 +12,10 @@ class ShoppingCartCest
 
         $shoppingCart->checkShoppingCart();
         $I->comment('Expected result: Links are working');
-
+/*
         $shoppingCart->checkAddNewItem();
-        $I->comment('Expected result: Count is working plus and minus');
-
+        //$I->comment('Expected result: Add to cart a new item');
+*/
         $I->checkCountsForItem();
         $I->comment('Expected result: Count is working plus and minus');
 

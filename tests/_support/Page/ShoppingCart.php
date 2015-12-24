@@ -15,6 +15,14 @@ class ShoppingCart
 
     public static $clickEdit = 'tr.first.odd > td.last > a.btn-edit';
 
+    //new item
+
+    public static $newAddItem = 'div.belt_detail > div.btn-cart > button.button.btn-cart.ajx-cart > span > span';
+    public static $closeCart = 'i.fa.fa-times';
+    public static $updateItems = 'button.button.btn-update > span > span';
+    public static $newItem = 'tr.last.even > td:nth-of-type(2)';
+
+
 
     //coupon
 
@@ -72,13 +80,13 @@ class ShoppingCart
     {
         $I = $this->tester;
 
-        $I->click(self::$addNewItem);
-        
-        $I->scrollDown(250);
+        $I->click(self::$newAddItem);
+        $I->waitForElementVisible(self::$closeCart);
+        $I->click(self::$closeCart);
+        $I->waitForElementVisible(self::$updateItems);
+        $I->click(self::$updateItems);
+        $I->waitForElement(self::$newItem);
     }
-
-
-
 
     public function checkEdit(){
         $I = $this->tester;
