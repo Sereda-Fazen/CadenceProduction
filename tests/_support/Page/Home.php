@@ -44,6 +44,7 @@ class Home
 
     public static $slide = 'div.std > p:nth-of-type(1) > a > img';
     public static $div = 'div.main';
+    public static $firstSlide = 'li.item > a > img';
 
 
     /**
@@ -124,6 +125,7 @@ class Home
 
         $I->moveMouseOver(self::$cart);
         $I->click(self::$viewCart);
+        $I->moveBack();
     }
 
     public function homePageMainMenu()
@@ -135,9 +137,33 @@ class Home
     public function homeSlide()
     {
         $I = $this->tester;
+        $I->amOnPage(self::$URL);
+        $I->click(self::$firstSlide);
         $I->moveBack();
+        $I->scrollDown(300);
         $I->click(self::$slide);
-        $I->waitForElement(self::$div);
+        $I->moveBack();
+
+    }
+
+    public function homePageContent()
+    {
+        $I = $this->tester;
+
+        $I->scrollDown(200);
+        $I->click(self::$link);
+        $I->moveBack();
+        $I->scrollDown(200);
+        /*
+        $I->waitForElement(self::$addToCart,10);
+        $I->click(self::$addToCart);
+        $I->waitForElement(self::$cancel, 10);
+        $I->click(self::$cancel);
+        $I->moveBack();
+        $I->scrollDown(300);
+        */
+        $I->waitForElement(self::$zoom);
+        $I->click(self::$zoom);
         $I->moveBack();
     }
 
@@ -152,24 +178,7 @@ class Home
         $I->see('Thank you for your subscription.',self::$msg);
     }
 
-    public function homePageContent()
-    {
-        $I = $this->tester;
 
-        $I->waitForElementVisible(self::$link);
-        $I->click(self::$link);
-        $I->moveBack();
-        $I->scrollDown(200);
-        $I->waitForElement(self::$addToCart,10);
-        $I->click(self::$addToCart);
-        $I->waitForElement(self::$cancel, 10);
-        $I->click(self::$cancel);
-        $I->moveBack();
-        $I->scrollDown(300);
-        $I->waitForElement(self::$zoom);
-        $I->click(self::$zoom);
-        $I->moveBack();
-    }
 
     public function homePageLinks()
     {

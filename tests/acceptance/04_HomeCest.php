@@ -35,18 +35,15 @@ class HomeCest
 
         function homeContent(Step\Acceptance\LoginSteps $I, \Page\Home $homePage)
         {
-            $homePage->homeSlide();
-
-            $homePage->homePageContent();
+           $homePage->homeSlide();
+           $homePage->homePageContent();
         }
-
+/*
         function homeSubscription(Step\Acceptance\LoginSteps $I, \Page\Home $homePage)
         {
-
             $homePage->homePageSubscription('cadence.test01@yahoo.com');
-
         }
-
+*/
         function homeFooter(Step\Acceptance\LoginSteps $I, \Page\Home $homePage)
         {
 
