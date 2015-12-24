@@ -42,7 +42,8 @@ class Home
      * Slide
      */
 
-    public static $slide = 'li.item > a > img';
+    public static $slide = 'div.std > p:nth-of-type(1) > a > img';
+    public static $div = 'div.main';
 
 
     /**
@@ -134,19 +135,21 @@ class Home
     public function homeSlide()
     {
         $I = $this->tester;
-        $I->click(self::$logo);
+        $I->moveBack();
         $I->click(self::$slide);
-        $I->click(self::$logo);
+        $I->waitForElement(self::$div);
+        $I->moveBack();
     }
 
     public function homePageSubscription($email)
     {
         $I = $this->tester;
 
-        $I->wait(4);
+        $I->scrollDown(500);
         $I->fillField(self::$sub, $email);
         $I->click(self::$clickSub);
-        $I->waitForElement(self::$msg, 4);
+        $I->waitForElement(self::$msg);
+        $I->see('Thank you for your subscription.',self::$msg);
     }
 
     public function homePageContent()
