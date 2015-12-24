@@ -9,6 +9,7 @@ class MenCest
     function menPage(Step\Acceptance\ItemsSteps $I, \Page\Men $menPage)
     {
         $menPage->men();
+
         $I->checkForPriceItems();
         $I->comment('Expected result: Check the price');
 

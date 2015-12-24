@@ -186,6 +186,7 @@ class ItemsSteps extends \AcceptanceTester
         $I->click('div.actions > a');
         $I->waitForAjax(40);
         $I->waitForElementNotVisible('ol > li',40);
+        $I->scrollUp(200);
 
 
     }
