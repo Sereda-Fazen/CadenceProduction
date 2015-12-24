@@ -13,6 +13,9 @@ class ShoppingCartCest
         $shoppingCart->checkShoppingCart();
         $I->comment('Expected result: Links are working');
 
+        $shoppingCart->checkAddNewItem();
+        $I->comment('Expected result: Count is working plus and minus');
+
         $I->checkCountsForItem();
         $I->comment('Expected result: Count is working plus and minus');
 
@@ -33,13 +36,13 @@ class ShoppingCartCest
 
         $shoppingCart->checkWrongGiffCard('test');
         $I->comment('Expected result: Gift card "test" is invalid.');
-
+/*
         $shoppingCart->checkGiffCard('GIFT-ADFA-12NF0O');
         $I->comment('Expected result: Gift code "GIFT-XXXX-XXXXXX" has been applied successfully.');
 
         $shoppingCart->checkDeleteGiffCard();
         $I->comment('Expected result: Your Gift Card information has been removed successfully.');
-
+*/
         $shoppingCart-> removeItem();
         $I->comment('Expected result: You have no items in your shopping cart.');
 

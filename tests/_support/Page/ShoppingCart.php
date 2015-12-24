@@ -7,7 +7,9 @@ class ShoppingCart
 
     public static $URL = '/';
 
-    public static $clickItem = 'div.owl-wrapper > div:first-child > div.item > div.product-image-wrapper > div.actions > div.btn-cart > button.button.btn-cart.ajx-cart > span > span';
+    public static $new = '#mega-nav > li:nth-of-type(1) > a';
+    public static $mouseItem = 'ul.products-grid.category-products-grid.columngrid.columngrid-adaptive.first.last.odd > li:nth-of-type(2) > div.product-image-wrapper > a.product-image > img';
+    public static $waitItem = 'ul.products-grid.category-products-grid.columngrid.columngrid-adaptive.first.last.odd > li:nth-of-type(2) > div.product-image-wrapper > div.actions > div.btn-cart > button.button.btn-cart.ajx-cart > span > span';
     public static $goToCart = 'a.close.cart';
     public static $shoppingCart  = 'div.main';
 
@@ -56,13 +58,27 @@ class ShoppingCart
 
 
         $I->amOnPage(self::$URL);
-        $I->scrollDown(100);
-        $I->waitForElementVisible(self::$clickItem);
-        $I->click(self::$clickItem);
+        $I->click(self::$new);
+        $I->scrollDown(250);
+        $I->moveMouseOver(self::$mouseItem);
+        $I->waitForElementVisible(self::$waitItem);
+        $I->click(self::$waitItem);
         $I->waitForElement(self::$goToCart);
         $I->click(self::$goToCart);
         $I->waitForElement(self::$shoppingCart,2);
     }
+
+    public function checkAddNewItem()
+    {
+        $I = $this->tester;
+
+        $I->click(self::$addNewItem);
+        
+        $I->scrollDown(250);
+    }
+
+
+
 
     public function checkEdit(){
         $I = $this->tester;
