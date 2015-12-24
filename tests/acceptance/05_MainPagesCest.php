@@ -6,11 +6,20 @@ use Step\Acceptance;
 class MainPagesCest
 {
 
-        function clickMenPages(Step\Acceptance\LoginSteps $I, \Page\MainPages $menPage) {
+        function clickMenPage(\Page\MainPages $menPage, \Step\Acceptance\LoginSteps $I)
+        {
+
             $menPage->men();
-            $I->linksMen();
-            $menPage->sale();
+            $I->headerLinks();
+            //$I->menLinks();
+        }
+
+        function otherPages(\Page\MainPages $menPage)
+        {
+            $menPage->newItems();
             $menPage->women();
+            $menPage->accessories();
+            $menPage->giffCard();
         }
 
 

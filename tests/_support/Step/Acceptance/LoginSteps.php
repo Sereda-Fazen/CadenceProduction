@@ -269,11 +269,35 @@ class LoginSteps extends \AcceptanceTester
 
     //pages
 
+    public function categoryLinks(){
+        $I = $this;
+        $I->scrollDown(300);
+        $catLinks = count($I->grabMultiple('//*[@class ="block-content"]/ul/li'));
+        for ($c = 1; $c <= $catLinks; $c++){
+            $I->click('#sidenav > li:nth-of-type('.$c.') > a ');
+            $I->waitForElement('ul.grid_full > li:nth-of-type(3) > strong');
+            $I->scrollDown(150);
+        }
+    }
+
+
     public function menLinks(){
         $I = $this;
-        $I->amOnPage('/');
-
-        $I->click('li.parent > a');
+        $countLinks = count($I->grabMultiple('//*[@class="level0"]/li'));
+        for ($u = 1; $u <= $countLinks; $u++){
+            $I->click('//*[@id="sidenav"]/li[2]/ul/li['.$u.']/a');
+            $I->waitForElement('ul.grid_full > li:nth-of-type(3) > strong');
+            $I->scrollDown(150);
+        }
+        $I->moveBack();
+    }
+    public function headerLinks(){
+        $I = $this;
+        $headerLinks = count($I->grabMultiple('//*[@class="childCategory"]/a'));
+        for ($header = 1; $header <= $headerLinks; $header++){
+            $I->click('//*[@class="childCategory"]/a['.$header.']');
+            $I->waitForElement('ul.grid_full > li:nth-of-type(3) > strong');
+        }
     }
 
 
