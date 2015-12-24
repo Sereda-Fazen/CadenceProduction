@@ -354,6 +354,7 @@ class ItemsSteps extends \AcceptanceTester
         $I->waitForElementVisible('#payment-buttons-container > button.button.continueRed > span > span', 3);
         $I->scrollDown(200);
         $I->see('This is a required field.', '#advice-required-entry-paypal_direct_cc_type');
+        $I->wait(2);
     }
     public function checkEmptyNumberCard()
     {
