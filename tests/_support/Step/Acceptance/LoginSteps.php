@@ -235,9 +235,7 @@ class LoginSteps extends \AcceptanceTester
         $I = $this;
         $I->amOnUrl("https://mail.yahoo.com");
         $I->fillField('//*[@id="login-username"]', 'cadence.test01@yahoo.com');
-        $I->wait(2);
         $I->fillField('//*[@id="login-passwd"]', '!1qwerty');
-        $I->wait(2);
         $I->click('//*[@id="login-signin"]');
         $I->waitForElement('//*[@class="icon info info-real info-unread "]',5);
         $I->see('Password Reset Confirmation', '//*[@class="subject bold"]');
