@@ -44,29 +44,25 @@ class ItemsSteps extends \AcceptanceTester
     public function allShowingItem()
     {
         $I = $this;
+        $I->scrollUp(200);
         $I->click('div.category-products > div.toolbar > div.sorter > div.item-left > div.limiter > a:nth-of-type(1)');
         $I->waitForAjax(20);
-        $I->scrollDown(100);
-        $I->waitForElement('div.category-products > div.toolbar > div.pager > div.pages');
+        $I->waitForElementVisible('div.category-products > div.toolbar > div.pager > div.pages');
         $I->comment('Expected result: Showing of 12 items on one page ');
 
         $I->click('div.category-products > div.toolbar > div.sorter > div.item-left > div.limiter > a:nth-of-type(2)');
-
         $I->waitForAjax(20);
         $I->comment('Expected result Is not visible block with navigation');
 
         $I->click('div.category-products > div.toolbar > div.sorter > div.item-left > div.limiter > a:nth-of-type(3)');
-
         $I->waitForAjax(20);
         $I->comment('Expected result Is not block with navigation');
 
         $I->click('div.category-products > div.toolbar > div.sorter > div.item-left > div.limiter > a:nth-of-type(4)');
-
         $I->waitForAjax(20);
         $I->comment('Expected result: Showing of 64 items on one page ');
 
         $I->click('div.category-products > div.toolbar > div.sorter > div.item-left > div.limiter > a:nth-of-type(5)');
-
         $I->waitForAjax(20);
         $I->waitForElementNotVisible('div.category-products > div.toolbar > div.pager > div.pages');
         $I->comment('Expected result: Showing all items one page ');
