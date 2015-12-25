@@ -11,6 +11,19 @@ class ForgotPass
 
     public static $msg = 'li.success-msg';
 
+    /**
+     * Delete msg from yahoo
+     */
+
+    public static $URL2 = 'https://mail.yahoo.com';
+    public static $email = '//*[@id="login-username"]';
+    public static $pass = '//*[@id="login-passwd"]';
+    public static $enter = '//*[@id="login-signin"]';
+    public static $waitMsg = '//*[@class="icon info info-real info-unread "]';
+    public static $clickOldMsg = 'div.cbox > input';
+    public static $delete = '#btn-delete > span.icon-text';
+    public static $msgRemove = '//p[@class="empty-folder-footer"]';
+
 
 
     protected $tester;
@@ -28,6 +41,23 @@ class ForgotPass
         $I->fillField(self::$mail, $mailPass);
         $I->click(self::$subSave);
         $I->see('If there is an account associated with cadence.test01@yahoo.com you will receive an email with a link to reset your password.', self::$msg);
+    }
+
+    public function deleteMsg($email,$pass){
+        $I = $this->tester;
+
+        $I->amOnUrl(self::$URL2);
+/*
+        $I->fillField(self::$email, $email);
+        $I->fillField(self::$pass, $pass);
+        $I->click(self::$enter);
+*/
+        $I->waitForElementNotVisible(self::$waitMsg,5);
+        $I->wait(3);
+        $I->click(self::$clickOldMsg);
+        $I->waitForElementVisible(self::$delete);
+        $I->click(self::$delete);
+        $I->waitForElement(self::$msgRemove);
     }
 
 }
