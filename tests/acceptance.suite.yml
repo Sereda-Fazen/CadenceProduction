@@ -23,8 +23,8 @@ modules:
             #clear_cookies: false
 
             capabilities:
-             browserstack.user: 'alex3357'
-             browserstack.key: 't73oeyZX8FDMPgnGFUCh'
+             browserstack.user: 'alex3451'
+             browserstack.key: 'DM4aJvzKU5zsBcC5HxQo'
              browserstack.debug: 'true'
              #applicationCacheEnabled: false
              unexpectedAlertBehaviour: 'accept'
