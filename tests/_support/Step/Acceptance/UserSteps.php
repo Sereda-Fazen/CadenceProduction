@@ -13,7 +13,7 @@ class UserSteps extends \AcceptanceTester
         $I->amOnPage('/customer/account/login/');
         try { $I->click('.closeNewsletter'); } catch (Exception $e) {}
         $I->wait(2);
-        $I->fillField('#email', 'cadence.test01@yahoo.com');
+        $I->fillField('#email', 'cadence_watch@yahoo.com');
         $I->fillField('#pass', '123456');
         $I->click('Login');
 

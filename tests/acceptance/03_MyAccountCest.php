@@ -14,7 +14,7 @@ class MyAccountCest
         $I->stepsLoginIn();
         $I->see('Hello, alex sereda!', 'p.hello > strong');
 
-        $myAccountPage->accountInfo('alex', 'sereda', 'cadence.test01@yahoo.com', '123456', '123456', '123456');
+        $myAccountPage->accountInfo('alex', 'sereda', 'cadence_watch@yahoo.com', '123456', '123456', '123456');
         $I->see('The account information has been saved.', 'li.success-msg');
 
         $myAccountPage->accountInfo('', '', '', '', '', '');
