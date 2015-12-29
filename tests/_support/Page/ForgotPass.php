@@ -40,7 +40,7 @@ class ForgotPass
         $I->click(self::$mail);
         $I->fillField(self::$mail, $mailPass);
         $I->click(self::$subSave);
-        $I->see('If there is an account associated with cadence.test01@yahoo.com you will receive an email with a link to reset your password.', self::$msg);
+        $I->see('If there is an account associated with cadence_watch@yahoo.com you will receive an email with a link to reset your password.', self::$msg);
     }
 
     public function deleteMsg(){
