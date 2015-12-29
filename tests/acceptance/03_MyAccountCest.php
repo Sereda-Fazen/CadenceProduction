@@ -8,20 +8,23 @@ class MyAccountCest
 
 {
 
+    /*
+function MyAccountInfo(\Step\Acceptance\LoginSteps $I, \Page\MyAccount $myAccountPage)
+{
+    $I->stepsLoginIn();
+    $I->see('Hello, alex sereda!', 'p.hello > strong');
 
-    function MyAccountInfo(\Step\Acceptance\LoginSteps $I, \Page\MyAccount $myAccountPage)
-    {
-        $I->stepsLoginIn();
-        $I->see('Hello, alex sereda!', 'p.hello > strong');
+    $myAccountPage->accountInfo('alex', 'sereda', 'cadence.test01@yahoo.com', '123456', '123456', '123456');
+    $I->see('This customer email already exists', 'li.error-msg');
 
-        $myAccountPage->accountInfo('alex', 'sereda', 'cadence_watch@yahoo.com', '123456', '123456', '123456');
-        $I->see('The account information has been saved.', 'li.success-msg');
+    $myAccountPage->accountInfo('', '', '', '', '', '');
+    $I->see('This is a required field.', '#advice-required-entry-email');
+    $I->comment('Expected result: These are required fields');
 
-        $myAccountPage->accountInfo('', '', '', '', '', '');
-        $I->see('This is a required field.', '#advice-required-entry-email');
-        $I->comment('Expected result: These are required fields');
+    $myAccountPage->accountInfo('alex', 'sereda', 'cadence_watch@yahoo.com', '123456', '123456', '123456');
+    $I->see('The account information has been saved.', 'li.success-msg');
 
-    }
+}
 
     function MyAccountAddress(\Step\Acceptance\LoginSteps $I, \Page\MyAccount $MyAccountPage)
     {
@@ -68,7 +71,7 @@ class MyAccountCest
         $MyAccountPage->accountDownloads();
         $I->getVisibleText('You have not purchased any downloadable products yet.');
     }
-    /*
+
         function MyAccountNewsletter(AcceptanceTester $I, \Page\MyAccount $MyAccountPage){
             $MyAccountPage->accountNewsletterSave();
             $I->see('Your profile has been updated!', 'li.success-msg');
@@ -77,7 +80,8 @@ class MyAccountCest
             $MyAccountPage->accountReturnChecks();
         }
 
-    */
+
+
     function MyAccountGiftCard(Step\Acceptance\LoginSteps $I, \Page\MyAccount $MyAccountPage)
     {
         $I->stepsLoginIn();
@@ -87,6 +91,12 @@ class MyAccountCest
         $I->logOut();
 
     }
-
+    */
+    function MyAccountNewsletter(AcceptanceTester $I, \Page\MyAccount $MyAccountPage){
+        $MyAccountPage->accountNewsletterSave();
+        $I->see('Your profile has been updated!', 'li.success-msg');
+        $MyAccountPage->accountNewsletterDelete();
+        $I->see('You have been removed from Newsletter.', 'li.success-msg');
+        $MyAccountPage->accountReturnChecks();
+    }
 }
-

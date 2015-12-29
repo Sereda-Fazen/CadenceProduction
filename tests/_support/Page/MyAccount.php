@@ -115,8 +115,6 @@ class MyAccount
         $I->fillField(self::$current, $current);
         $I->fillField(self::$pass, $pass1);
         $I->fillField(self::$confirmation, $pass2);
-        try { $I->click('.closeNewsletter'); } catch (Exception $e) {}
-        $I->wait(2);
         $I->scrollDown(100);
         $I->click(self::$submit);
     }
