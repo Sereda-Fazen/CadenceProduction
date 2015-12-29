@@ -6,15 +6,15 @@ class RegisterCest
 {
 
 
-
+/*
     function registerSuccess(AcceptanceTester $I, \Page\Register $registerPage) {
             $login = rand().'@'.rand().'.ru';
             $registerPage->register('alex', 'sereda',$login,'123456','123456');
             $I->see('Thank you for registering with The Cadence Watch Company.', 'li.success-msg');
             $I->comment('You are registering to Cadence Watch Company.');
             $registerPage->logout();
+*/
 
-        }
         function registerWrongEmail(AcceptanceTester $I, \Page\Register $registerPage) {
             $registerPage->register('alex', 'sereda','sereda222.ru','123456','123456');
             $I->see('Please enter a valid email address. For example johndoe@domain.com.','#advice-validate-email-email_address');

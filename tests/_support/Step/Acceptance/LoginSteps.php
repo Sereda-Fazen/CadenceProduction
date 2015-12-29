@@ -234,7 +234,7 @@ class LoginSteps extends \AcceptanceTester
 
         $I = $this;
         $I->amOnUrl("https://mail.yahoo.com");
-        $I->fillField('//*[@id="login-username"]', 'cadence.test01@yahoo.com');
+        $I->fillField('//*[@id="login-username"]', 'cadence_watch@yahoo.com');
         $I->fillField('//*[@id="login-passwd"]', '!1qwerty');
         $I->click('//*[@id="login-signin"]');
         $I->waitForElement('//*[@class="icon info info-real info-unread "]',5);
