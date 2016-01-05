@@ -8,7 +8,7 @@ class MyAccountCest
 
 {
 
-    /*
+
 function MyAccountInfo(\Step\Acceptance\LoginSteps $I, \Page\MyAccount $myAccountPage)
 {
     $I->stepsLoginIn();
@@ -71,7 +71,7 @@ function MyAccountInfo(\Step\Acceptance\LoginSteps $I, \Page\MyAccount $myAccoun
         $MyAccountPage->accountDownloads();
         $I->getVisibleText('You have not purchased any downloadable products yet.');
     }
-
+/*
         function MyAccountNewsletter(AcceptanceTester $I, \Page\MyAccount $MyAccountPage){
             $MyAccountPage->accountNewsletterSave();
             $I->see('Your profile has been updated!', 'li.success-msg');
@@ -79,7 +79,7 @@ function MyAccountInfo(\Step\Acceptance\LoginSteps $I, \Page\MyAccount $myAccoun
             $I->see('You have been removed from Newsletter.', 'li.success-msg');
             $MyAccountPage->accountReturnChecks();
         }
-
+*/
 
 
     function MyAccountGiftCard(Step\Acceptance\LoginSteps $I, \Page\MyAccount $MyAccountPage)
@@ -91,7 +91,7 @@ function MyAccountInfo(\Step\Acceptance\LoginSteps $I, \Page\MyAccount $myAccoun
         $I->logOut();
 
     }
-    */
+    /*
     function MyAccountNewsletter(AcceptanceTester $I, \Page\MyAccount $MyAccountPage){
         $MyAccountPage->accountNewsletterSave();
         $I->see('Your profile has been updated!', 'li.success-msg');
@@ -99,4 +99,5 @@ function MyAccountInfo(\Step\Acceptance\LoginSteps $I, \Page\MyAccount $myAccoun
         $I->see('You have been removed from Newsletter.', 'li.success-msg');
         $MyAccountPage->accountReturnChecks();
     }
+    */
 }

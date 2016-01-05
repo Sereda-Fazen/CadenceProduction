@@ -378,7 +378,7 @@ class ItemsSteps extends \AcceptanceTester
 
         // check month and year
         $I->click('#paypal_direct_expiration');
-        $I->click('//*[@id="paypal_direct_expiration"]/option[2]');
+        $I->click('//*[@id="paypal_direct_expiration"]/option[1]');
         $I->click('#paypal_direct_expiration_yr');
         $I->click('//*[@id="paypal_direct_expiration_yr"]/option[2]');
         $I->click('#payment-buttons-container > button.button.continueRed > span > span');
