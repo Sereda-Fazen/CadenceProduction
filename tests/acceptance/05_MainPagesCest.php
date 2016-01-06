@@ -18,7 +18,7 @@ class MainPagesCest
         {
             $menPage->newItems();
             $menPage->women();
-            $menPage->accessories();
+          //  $menPage->accessories();
             $menPage->giffCard();
         }
 
