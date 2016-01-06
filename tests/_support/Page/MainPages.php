@@ -31,7 +31,7 @@ class MainPages
      * Giff Card
      */
 
-    public static $giffCard = '#sidenav > li:nth-of-type(5) > a > span:nth-of-type(2)';
+    public static $giffCard = '#mega-nav > li:nth-of-type(3) > a';
 
     protected $tester;
 
