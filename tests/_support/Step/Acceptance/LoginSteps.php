@@ -238,8 +238,8 @@ class LoginSteps extends \AcceptanceTester
         $I->fillField('//*[@id="login-passwd"]', '!1qwerty');
         $I->click('//*[@id="login-signin"]');
         $I->waitForElement('//*[@class="icon info info-real info-unread "]',5);
-        $I->see('Password Reset Confirmation', '//*[@class="subject bold"]');
-        $I->click('//*[@class="subject bold"]');
+        $I->see('Cadence Watch Company', 'div.name.first');
+        $I->click('div.name.first');
 
     }
 
