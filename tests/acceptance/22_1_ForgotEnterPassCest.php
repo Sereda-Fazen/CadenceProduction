@@ -14,7 +14,7 @@ class EnterPassCest {
         $I->comment('Expected result: Your password has been updated');
     }
 
-    function invalidPass (Step\Acceptance\LoginSteps $I)
+    function invalidRepeatPass (Step\Acceptance\LoginSteps $I)
     {
         $I->moveBack();
         $I->see('Your password reset link has expired.','li.error-msg');
