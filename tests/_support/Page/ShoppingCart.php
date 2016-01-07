@@ -67,7 +67,7 @@ class ShoppingCart
 
         $I->amOnPage(self::$URL);
         $I->click(self::$new);
-        $I->scrollDown(250);
+        $I->scrollDown(450);
         $I->moveMouseOver(self::$mouseItem);
         $I->waitForElementVisible(self::$waitItem);
         $I->click(self::$waitItem);

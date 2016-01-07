@@ -439,6 +439,7 @@ class LoginSteps extends \AcceptanceTester
         $I = $this;
         $count = count($I->grabMultiple('//*[@class="col-2 addresses-additional"]/ol/li'));
         for ($d = $count; $d > 0; $d--) {
+            $this->scrollDown(1000);
             $I->click('ol > li:nth-of-type(' . $d . ') > p > a.link-remove');
             $I->acceptPopup();
             $I->waitForElement('li.success-msg');
