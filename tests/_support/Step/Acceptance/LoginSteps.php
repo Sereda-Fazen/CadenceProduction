@@ -165,7 +165,7 @@ class LoginSteps extends \AcceptanceTester
         $I = $this;
         $I->fillField($billing . 'firstname', 'alex');
         $I->fillField($billing . 'lastname', 'sereda');
-        $I->fillField($billing . 'email', 'sa@itsvit.org');
+        $I->fillField($billing . 'email', 'sa@test.org');
         $I->fillField('input.input-text.required-entry.validate-length', 'Dostoevskogo street 22V');
         $I->fillField($billing . 'city', 'Kharkov');
         $I->fillField($billing . 'postcode', '1rr354');

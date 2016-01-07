@@ -30,13 +30,13 @@ class LoginCest
         }
 
         function loginInvalidEmail(AcceptanceTester $I, \Page\Login $loginPage) {
-            $loginPage->login('testmail.ru', '123456');
+            $loginPage->login('testmail.com', '123456');
             $I->see('Please enter a valid email address. For example johndoe@domain.com.', '#advice-validate-email-email');
             $I->comment('Expected result: Please enter a valid email address.');
         }
 
         function loginWrongEmail(AcceptanceTester $I, \Page\Login $loginPage) {
-            $loginPage->login('test@test.ru', '123456');
+            $loginPage->login('test@test.com', '123456');
             $I->see('Invalid login or password.', 'li.error-msg');
             $I->comment('Expected result: Please enter a valid email address.');
         }
