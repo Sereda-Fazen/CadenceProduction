@@ -36,6 +36,9 @@ class Register
         $I->fillField(self::$email, $email);
         $I->fillField(self::$pass, $pass1);
         $I->fillField(self::$confirmation, $pass2);
+        $I->wait(2);
+        try { $I->click('.closeNewsletter'); } catch (Exception $e) {}
+        $I->wait(2);
         $I->click(self::$submit);
 
         return $this;
