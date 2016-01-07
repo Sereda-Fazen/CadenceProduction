@@ -427,7 +427,6 @@ class ItemsSteps extends \AcceptanceTester
         $I->fillField('#paypal_direct_cc_cid', '1234');
         //continue
         $I->click('#payment-buttons-container > button.button.continueRed > span > span');
-        $I->wait(2);
         //$I->waitForElement('div.cart-empty > p:nth-of-type(1)',10);
 
 
