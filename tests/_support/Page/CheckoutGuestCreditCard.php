@@ -35,8 +35,8 @@ class CheckoutGuestCreditCard
     public function orderView(){
         $I = $this->tester;
 
-        $I->waitForElementVisible(self::$waitOrderView,60);
-        $I->waitForElementVisible(self::$clickOrder,60);
+        $I->waitForElementVisible(self::$waitOrderView,260);
+        $I->waitForElementVisible(self::$clickOrder,260);
         $I->scrollUp(100);
         $I->click(self::$returnPayment);
 
@@ -48,7 +48,7 @@ class CheckoutGuestCreditCard
         $I->waitForElementVisible(self::$clickOrder,30);
         $I->waitForElement(self::$clickOrder);
         $I->click(self::$clickOrder);
-        $I->wait(15);
+        $I->wait(10);
         $I->acceptPopup();
 
     }
