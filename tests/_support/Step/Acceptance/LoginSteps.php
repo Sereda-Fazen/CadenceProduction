@@ -98,7 +98,8 @@ class LoginSteps extends \AcceptanceTester
     {
         $I = $this;
         for ($i = 1; $i <= 3; $i++) {
-            $I->scrollDown(1000);
+            $I->scrollDown(2000);
+            $this->wait(2);
             $I->click('div.footer-primary.footer > div:nth-of-type(1) > div.accordion.mobile-accordion > div.block-content > ul.list.bullet.separator > li:nth-of-type(' . $i . ') > a');
 
         }
@@ -108,6 +109,7 @@ class LoginSteps extends \AcceptanceTester
         $I = $this;
         for ($j = 1; $j <= 3; $j++) {
             $I->scrollDown(2000);
+            $this->wait(2);
             $I->click('div.footer-primary.footer > div:nth-of-type(2) > div.accordion.mobile-accordion > div.block-content > ul.list.bullet.separator > li:nth-of-type(' . $j . ') > a');
 
         }
@@ -118,7 +120,8 @@ class LoginSteps extends \AcceptanceTester
     {
         $I = $this;
         for ($k = 1; $k <= 2; $k++) {
-            $I->scrollDown(1000);
+            $I->scrollDown(2000);
+            $this->wait(2);
             $I->click('div.footer-primary.footer > div:nth-of-type(3) > div.accordion.mobile-accordion > div.block-content > ul.list.bullet.separator > li:nth-of-type(' . $k . ') > a');
 
         }
