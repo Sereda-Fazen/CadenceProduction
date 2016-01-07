@@ -360,6 +360,7 @@ class ItemsSteps extends \AcceptanceTester
         $I->click('#paypal_direct_cc_type');
         $I->click('//*[@id="paypal_direct_cc_type"]/option[2]');
         $I->click('#payment-buttons-container > button.button.continueRed > span > span');
+        $I->wait(2);
         $I->see('Card type does not match credit card number.', '#advice-validate-cc-type-select-paypal_direct_cc_type');
     }
 
@@ -370,6 +371,7 @@ class ItemsSteps extends \AcceptanceTester
         $I->fillField('#paypal_direct_cc_number', '1234567');
         $I->click('#payment-buttons-container > button.button.continueRed > span > span');
         $I->see('Please enter a valid credit card number.', '#advice-validate-cc-number-paypal_direct_cc_number');
+        $I->wait(2);
     }
 
     public function checkInvalidMonthWithYear()
@@ -378,8 +380,10 @@ class ItemsSteps extends \AcceptanceTester
 
         // check month and year
         $I->click('#paypal_direct_expiration');
+        $I->wait(2);
         $I->click('//*[@id="paypal_direct_expiration"]/option[1]');
         $I->click('#paypal_direct_expiration_yr');
+        $I->wait(2);
         $I->click('//*[@id="paypal_direct_expiration_yr"]/option[2]');
         $I->click('#payment-buttons-container > button.button.continueRed > span > span');
         $I->see('Incorrect credit card expiration date.', '#advice-validate-cc-exp-paypal_direct_expiration');
@@ -395,6 +399,7 @@ class ItemsSteps extends \AcceptanceTester
         $I->scrollDown(100);
         $I->click('#payment-buttons-container > button.button.continueRed > span > span');
         $I->see('Please enter a valid credit card verification number.', '#advice-validate-cc-cvn-paypal_direct_cc_cid');
+        $I->wait(2);
         $I->amOnPage('/');
 
     }
@@ -422,6 +427,7 @@ class ItemsSteps extends \AcceptanceTester
         $I->fillField('#paypal_direct_cc_cid', '1234');
         //continue
         $I->click('#payment-buttons-container > button.button.continueRed > span > span');
+        $I->wait(2);
         //$I->waitForElement('div.cart-empty > p:nth-of-type(1)',10);
 
 
