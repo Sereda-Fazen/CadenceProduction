@@ -136,9 +136,10 @@ class Home
     public function homeSlide()
     {
         $I = $this->tester;
+        $I->amOnPage(self::$URL);
         $I->waitForElementVisible(self::$slide);
         $I->click(self::$slide);
-        //$I->moveBack();
+        $I->amOnPage(self::$URL);
         $I->moveMouseOver(self::$slide);
         $I->click(self::$rightClick);
         $I->wait(2);
@@ -146,6 +147,7 @@ class Home
         $I->wait(2);
 
     }
+
 
     public function homePageSubscription($email)
     {
