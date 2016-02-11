@@ -7,6 +7,17 @@ class LoginSteps extends \AcceptanceTester
 {
 
 
+    public function checkExistUser()
+    {
+        $I = $this;
+        $grabMsg = $I->grabTextFrom('//ul[@class="messages"]');
+        if (preg_match('/Thank you for registering with The Cadence Watch Company./i', $grabMsg) == 1) {
+            $I->see('Thank you for registering with The Cadence Watch Company.', '//ul[@class="messages"]');
+        } else {
+            $I->see('There is already an account with this email address. ', '//ul[@class="messages"]');
+        }
+    }
+
     public function deleteCookies(){
         $I= $this;
         $I->seeCookie('PHPSESSID');
