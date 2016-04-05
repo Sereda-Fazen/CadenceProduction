@@ -21,11 +21,7 @@ class EnterPassCest {
         $I->comment('Expected result: Your password has been updated');
     }
 
-    function deleteOldMsg(Step\Acceptance\LoginSteps $I, Page\ForgotPass $deleteMsg){
-        $deleteMsg->deleteMsg();
-        $I->comment('Expected result: Your message was deleted');
-
-    }
+    
 
 
 
