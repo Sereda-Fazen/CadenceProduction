@@ -21,7 +21,7 @@ class EnterPassCest {
         $I->comment('Expected result: Your password has been updated');
     }
 
-    
+
 
 
 

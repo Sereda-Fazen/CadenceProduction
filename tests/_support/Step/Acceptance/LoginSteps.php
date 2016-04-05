@@ -259,7 +259,6 @@ class LoginSteps extends \AcceptanceTester
         $I->click('//*[@id="login-signin"]');
         $I->waitForElement('//*[@class="list-view-items-page"]');
         $I->see('Cadence Watch Company', 'div.name.first');
-        $I->click('//*[@class="subject bold"]');
         $I->click('div.name.first');
 
     }
@@ -278,7 +277,7 @@ class LoginSteps extends \AcceptanceTester
 
     public function newPass() {
         $I = $this;
-        $I->waitForText('Reset a Password', 15, 'h1');
+        $I->waitForText('Reset a Password', 15);
         $I->fillField('#password', '123456');
         $I->fillField('#confirmation', '123456');
         $I->click('Reset a Password');
