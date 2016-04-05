@@ -49,6 +49,8 @@ class MainPages
     }
     public function newItems(){
         $I = $this->tester;
+        $I->amOnPage(self::$URL);
+        $I = $this->tester;
         $I->click(self::$newItems);
     }
 
@@ -62,6 +64,7 @@ class MainPages
     }
     public function women(){
         $I = $this->tester;
+        $I->amOnPage(self::$URL);
         $I->click(self::$women);
         $I->waitForElement(self::$wait);
     }

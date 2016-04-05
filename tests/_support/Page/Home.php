@@ -170,7 +170,7 @@ class Home
         $I->scrollDown(200);
         $I->waitForElementVisible(self::$addToCart,10);
         $I->click(self::$addToCart);
-        $I->waitForElement(self::$cancel, 10);
+        $I->waitForElement(self::$cancel, 60);
         $I->click(self::$cancel);
         $I->moveBack();
     }

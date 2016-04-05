@@ -76,7 +76,7 @@ class LoginSteps extends \AcceptanceTester
             $card = rand();
             $I->fillField('#gift-voucher-code', $card);
             $I->click('div.text-left > button:nth-of-type(1) > span > span');
-            $I->waitForText('Gift card "' . $card . '" is invalid.You have ' . $c . ' time(s) remaining to re-enter Gift Card code.', 3, '.error-msg');
+            $I->waitForText('Gift card "' . $card . '" is invalid.You have ' . $c . ' time(s) remaining to re-enter Gift Card code.', 3, '#admin_messages');
         }
         $I->fillField('#gift-voucher-code', $card);
         $I->click('div.text-left > button:nth-of-type(1) > span > span');
@@ -250,12 +250,12 @@ class LoginSteps extends \AcceptanceTester
         $I->amOnUrl("https://mail.yahoo.com");
 
         $pass = count($I->grabMultiple('//*[@id="login-passwd"]'));
-        $I->fillField('//*[@id="login-username"]', 'denimio_test@yahoo.com');
+        $I->fillField('//*[@id="login-username"]', 'cadence_watch@yahoo.com');
 
         $I->click('//*[@id="login-signin"]');
         //$I->seeElement('//div[@id="mbr-login-error"]');
         $I->waitForElementVisible('//*[@id="login-passwd"]');
-        $I->fillField('//*[@id="login-passwd"]', 'fJ4qEn5Y');
+        $I->fillField('//*[@id="login-passwd"]', '!1qwerty');
         $I->click('//*[@id="login-signin"]');
         $I->waitForElement('//*[@class="list-view-items-page"]');
         $I->see('Cadence Watch Company', 'div.name.first');
