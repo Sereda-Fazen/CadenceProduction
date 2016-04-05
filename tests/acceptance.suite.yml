@@ -9,7 +9,7 @@ modules:
 
     config:
         WebDriver:
-            url: 'https://cadencewatch.com'
+            url: 'https://cadencewatch.com/default'
 
 
             # run in browserstack

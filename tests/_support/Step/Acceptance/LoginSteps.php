@@ -248,11 +248,18 @@ class LoginSteps extends \AcceptanceTester
 
         $I = $this;
         $I->amOnUrl("https://mail.yahoo.com");
-        $I->fillField('//*[@id="login-username"]', 'cadence_watch@yahoo.com');
-        $I->fillField('//*[@id="login-passwd"]', '!1qwerty');
+
+        $pass = count($I->grabMultiple('//*[@id="login-passwd"]'));
+        $I->fillField('//*[@id="login-username"]', 'denimio_test@yahoo.com');
+
         $I->click('//*[@id="login-signin"]');
-        $I->waitForElement('//*[@class="icon info info-real info-unread "]',5);
+        //$I->seeElement('//div[@id="mbr-login-error"]');
+        $I->waitForElementVisible('//*[@id="login-passwd"]');
+        $I->fillField('//*[@id="login-passwd"]', 'fJ4qEn5Y');
+        $I->click('//*[@id="login-signin"]');
+        $I->waitForElement('//*[@class="list-view-items-page"]');
         $I->see('Cadence Watch Company', 'div.name.first');
+        $I->click('//*[@class="subject bold"]');
         $I->click('div.name.first');
 
     }
