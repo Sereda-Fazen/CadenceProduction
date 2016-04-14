@@ -111,7 +111,7 @@ class Home
     public function homePageSearch($search)
     {
         $I = $this->tester;
-
+        $I->amOnPage(self::$URL);
         $I->moveMouseOver(self::$search);
         $I->fillField(self::$input, $search);
         $I->waitForElement(self::$list, 10);
@@ -121,7 +121,7 @@ class Home
     public function homeHeaderCart()
     {
         $I = $this->tester;
-
+        $I->amOnPage(self::$URL);
         $I->moveMouseOver(self::$cart);
         $I->click(self::$viewCart);
         $I->click(self::$logo);
