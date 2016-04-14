@@ -14,14 +14,14 @@ function MyAccountInfo(\Step\Acceptance\LoginSteps $I, \Page\MyAccount $myAccoun
     $I->stepsLoginIn();
     $I->see('Hello, alex sereda!', 'p.hello > strong');
 
-    $myAccountPage->accountInfo('alex', 'sereda', 'cadence.test01@yahoo.com', '123456', '123456', '123456');
+    $myAccountPage->accountInfo('alex', 'sereda', 'cadence_test@yahoo.com', '123456', '123456', '123456');
     $I->see('This customer email already exists', 'li.error-msg');
 
     $myAccountPage->accountInfo('', '', '', '', '', '');
     $I->see('This is a required field.', '#advice-required-entry-email');
     $I->comment('Expected result: These are required fields');
 
-    $myAccountPage->accountInfo('alex', 'sereda', 'cadence_watch@yahoo.com', '123456', '123456', '123456');
+    $myAccountPage->accountInfo('alex', 'sereda', 'cadence.watch@yahoo.com', '123456', '123456', '123456');
     $I->see('The account information has been saved.', 'li.success-msg');
 
 }

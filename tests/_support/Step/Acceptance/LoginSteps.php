@@ -18,12 +18,7 @@ class LoginSteps extends \AcceptanceTester
         }
     }
 
-    public function deleteCookies(){
-        $I= $this;
-        $I->seeCookie('PHPSESSID');
-        $I->resetCookie('dev1.cadencewatch.com');
-        $I->reloadPage();
-    }
+
 
     public function logOut(){
         $I= $this;
@@ -38,7 +33,7 @@ class LoginSteps extends \AcceptanceTester
         $I->amOnPage('/customer/account/login/');
         try { $I->click('.closeNewsletter'); } catch (Exception $e) {}
         $I->wait(2);
-        $I->fillField('#email', 'cadence_watch@yahoo.com');
+        $I->fillField('#email', 'cadence_test@yahoo.com');
         $I->wait(2);
         $I->fillField('#pass', '123456');
         $I->click('Login');
