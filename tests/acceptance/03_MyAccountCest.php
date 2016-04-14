@@ -21,7 +21,7 @@ function MyAccountInfo(\Step\Acceptance\LoginSteps $I, \Page\MyAccount $myAccoun
     $I->see('This is a required field.', '#advice-required-entry-email');
     $I->comment('Expected result: These are required fields');
 
-    $myAccountPage->accountInfo('alex', 'sereda', 'cadence_watch@yahoo.com', '123456', '123456', '123456');
+    $myAccountPage->accountInfo('alex', 'sereda', 'ccadence_test@yahoo.com', '123456', '123456', '123456');
     $I->see('The account information has been saved.', 'li.success-msg');
 
 }
