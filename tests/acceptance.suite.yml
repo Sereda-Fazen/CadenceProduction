@@ -31,5 +31,12 @@ modules:
              pageLoadStrategy: 'eager'
              #platform: 'XP'
 
+env:
+
+  DEV_8130:
+    modules:
+      config:
+        WebDriver:
+          url: 'https://vanya:43terminal59Pass@dev1.cadencewatch.com:8130'
 
 
