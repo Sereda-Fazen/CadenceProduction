@@ -9,26 +9,27 @@ class MyAccountCest
 {
 
 
-function MyAccountInfo(\Step\Acceptance\LoginSteps $I, \Page\MyAccount $myAccountPage)
-{
-    $I->stepsLoginIn();
-    $I->see('Hello, alex sereda!', 'p.hello > strong');
+    function MyAccountInfo(\Step\Acceptance\LoginSteps $I, \Page\MyAccount $myAccountPage)
+    {
+        $I->stepsLoginIn();
+        $I->see('Hello, alex sereda!', 'p.hello > strong');
 
-    $myAccountPage->accountInfo('alex', 'sereda', 'cadence_test@yahoo.com', '123456', '123456', '123456');
-    $I->see('This customer email already exists', 'li.error-msg');
+        $myAccountPage->accountInfo('alex', 'sereda', 'cadence_watch@yahoo.com', '123456', '123456', '123456');
+        $I->see('The account information has been saved.', 'li.success-msg');
 
-    $myAccountPage->accountInfo('', '', '', '', '', '');
-    $I->see('This is a required field.', '#advice-required-entry-email');
-    $I->comment('Expected result: These are required fields');
+        $myAccountPage->accountInfo('', '', '', '', '', '');
+        $I->see('This is a required field.', '#advice-required-entry-email');
+        $I->comment('Expected result: These are required fields');
 
-    $myAccountPage->accountInfo('alex', 'sereda', 'cadence_watch01@yahoo.com', '123456', '123456', '123456');
-    $I->see('The account information has been saved.', 'li.success-msg');
-
-}
+    }
 
     function MyAccountAddress(\Step\Acceptance\LoginSteps $I, \Page\MyAccount $MyAccountPage)
     {
         $I->stepsLoginIn();
+        $MyAccountPage->accountAddress('alex', 'sereda', '+39063636369', 'Dostoevskogo22v', 'Kharkov', '54423', 'Kharkov');
+        $I->waitForElement('li.success-msg');
+        $I->comment('Expected result: The address has been saved.');
+
         $MyAccountPage->accountAddress('alex', 'sereda', '+39063636369', 'Dostoevskogo22v', 'Kharkov', '54423', 'Kharkov');
         $I->waitForElement('li.success-msg');
         $I->comment('Expected result: The address has been saved.');
@@ -39,6 +40,7 @@ function MyAccountInfo(\Step\Acceptance\LoginSteps $I, \Page\MyAccount $myAccoun
         $MyAccountPage->accountAddress('alex', 'sereda', '+39063636369', 'Dostoevskogo22v', 'Kharkov', '54423', 'Kharkov');
         $I->waitForElement('li.success-msg');
         $I->comment('Expected result: The address has been saved.');
+
     }
 
     function MyAccountOrders(Step\Acceptance\LoginSteps $I, \Page\MyAccount $MyAccountPage) {
