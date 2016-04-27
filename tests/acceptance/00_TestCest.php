@@ -1,15 +1,19 @@
 <?php
 
+/**
+ * @group test
+ */
 class TestCest
 {
 
 
-    function homeSearch(Step\Acceptance\LoginSteps $I, \Page\Home $homePage)
-    {
-        $homePage->homePageSearch('Watch');
-        $I->getVisibleText('h1', 'Search results for "watch"');
-        $I->comment('Expected result: Search results for "Watch" ');
+    function loginSuccess(AcceptanceTester $I, \Page\Login $loginPage) {
+        $loginPage->login('cadence_watch@yahoo.com', '123456');
+        $I->amOnPage('/customer/account/index/');
+        $I->see('Hello, alex sereda!', 'p.hello > strong');
+        $loginPage->logout();
     }
+
 
 
 
