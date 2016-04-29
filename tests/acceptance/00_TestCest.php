@@ -7,20 +7,32 @@ class TestCest
 {
 
 
-    function clickMenPage(\Page\MainPages $menPage, \Step\Acceptance\LoginSteps $I)
+    function menPage(Step\Acceptance\ItemsSteps $I, \Page\Men $menPage)
     {
-
         $menPage->men();
-        $I->headerLinks();
-        //$I->menLinks();
-    }
 
-    function otherPages(\Page\MainPages $menPage)
-    {
-        $menPage->newItems();
-        $menPage->women();
-        //  $menPage->accessories();
-        $menPage->giffCard();
+        $I->checkForPriceItems();
+        $I->comment('Expected result: Check the price');
+
+        $I->allShowingItem();
+        $I->comment('Expected result: Showing products and check select options');
+
+        $I->checkSortBy();
+        $I->comment('Expected result: Sorting is working');
+
+        $I->checkGridButtonsForItems();
+        $I->comment('Expected result: In the grid the buttons are active');
+
+        $I->clickOnImg();
+        $I->comment('Expected result: Navigate to product card ');
+
+        $I->clickQuickView();
+        $I->comment('Expected result: Quick view is open ');
+
+
+
+
+
     }
 
 
