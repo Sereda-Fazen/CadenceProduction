@@ -8,7 +8,7 @@ class CheckoutPayPalCest
         /**
          * Giff Card
          */
-        function addToCartPage(Step\Acceptance\ItemsSteps  $I, Page\CheckoutPayPal $guestPage) {
+        function addToCartPagePayPal(Step\Acceptance\ItemsSteps  $I, Page\CheckoutPayPal $guestPage) {
             $I->processAddToCart();
 
             $guestPage->payPal();

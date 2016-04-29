@@ -7,33 +7,20 @@ class TestCest
 {
 
 
-    function menPage(Step\Acceptance\ItemsSteps $I, \Page\Men $menPage)
-    {
-        $menPage->men();
+    function addToCartPagePayPal(Step\Acceptance\ItemsSteps  $I, Page\CheckoutPayPal $guestPage) {
+        $I->processAddToCart();
 
-        $I->checkForPriceItems();
-        $I->comment('Expected result: Check the price');
+        $guestPage->payPal();
 
-        $I->allShowingItem();
-        $I->comment('Expected result: Showing products and check select options');
-
-        $I->checkSortBy();
-        $I->comment('Expected result: Sorting is working');
-
-        $I->checkGridButtonsForItems();
-        $I->comment('Expected result: In the grid the buttons are active');
-
-        $I->clickOnImg();
-        $I->comment('Expected result: Navigate to product card ');
-
-        $I->clickQuickView();
-        $I->comment('Expected result: Quick view is open ');
-
-
-
-
+        $guestPage->payPalSite();
+        $I->comment('Expected result: You are have your order in PayPal');
 
     }
+
+
+    
+
+
 
 
 

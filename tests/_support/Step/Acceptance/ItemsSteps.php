@@ -81,7 +81,7 @@ class ItemsSteps extends \AcceptanceTester
                 $I->waitForText('A', 4, 'ul.products-grid.category-products-grid.columngrid.columngrid-adaptive.first.last.odd > li:nth-of-type(1) > div.product-content-wrapper > div.product-content > h3.product-name.single-line-name > a');
                 $I->comment('Show category when - Name from A');
         */
-        $I->scrollDown(100);
+
         $I->selectOption('.//select[@onchange]', 'Price: Low to High');
         $I->waitForAjax(20);
         $I->waitForElement('//*[@class="regular-price"]');
@@ -174,10 +174,8 @@ class ItemsSteps extends \AcceptanceTester
         $I->fillField('[name="pricesliderright"]', 40);
         $I->click('dt.block-title > strong > span');
         $I->waitForElement('dt.block-title > strong > span',10);
-        $I->waitForAjax(20);
-        $I->waitForElement('dt.block-title > strong > span',10);
 
-        $I->waitForElement('ol > li',40);
+        //$I->waitForElement('ol > li',40);
         $I->waitForElement('div.actions > a',40);
         $I->click('div.actions > a');
         $I->waitForAjax(40);
