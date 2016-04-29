@@ -84,12 +84,12 @@ class ItemsSteps extends \AcceptanceTester
 
         $I->selectOption('.//select[@onchange]', 'Price: Low to High');
         $I->waitForAjax(20);
-        $I->waitForElement('//*[@class="regular-price"]');
+        $I->waitForElement('//span[@class="price"]');
         $I->comment('Show category when - Price begins - min');
 
         $I->selectOption('.//select[@onchange]', 'Price: High to Low');
         $I->waitForAjax(20);
-        $I->waitForElement('//*[@class="regular-price"]');
+        $I->waitForElement('//span[@class="price"]');
         $I->comment('Show category when - Price begins - max');
         /*
                 $I->selectOption('.//select[@onchange]', 'Band Type');
@@ -166,12 +166,12 @@ class ItemsSteps extends \AcceptanceTester
         $I = $this;
         $I->scrollDown(250);
         $I->waitForElement('[name="pricesliderleft"]',2);
-        $I->fillField('[name="pricesliderleft"]',20 );
+        $I->fillField('[name="pricesliderleft"]',10 );
         $I->click('dt.block-title > strong > span');
         $I->waitForAjax(30);
         $I->waitForElement('dt.block-title > strong > span',2);
 
-        $I->fillField('[name="pricesliderright"]', 40);
+        $I->fillField('[name="pricesliderright"]', 30);
         $I->click('dt.block-title > strong > span');
         $I->waitForElement('dt.block-title > strong > span',10);
 

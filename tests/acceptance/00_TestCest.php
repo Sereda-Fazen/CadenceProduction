@@ -7,10 +7,32 @@ class TestCest
 {
 
 
-    function forgotSuccess(Step\Acceptance\LoginSteps $I, \Page\ForgotPass $forgotPage)
+    function menPage(Step\Acceptance\ItemsSteps $I, \Page\Men $menPage)
     {
-        $forgotPage->forgot('cadence_watch@yahoo.com');
-        $I->comment('Expected result: If there is an account associated with cadence_watch@yahoo.com you will receive an email with a link to reset your password.');
+        $menPage->men();
+
+        $I->checkForPriceItems();
+        $I->comment('Expected result: Check the price');
+
+        $I->allShowingItem();
+        $I->comment('Expected result: Showing products and check select options');
+
+        $I->checkSortBy();
+        $I->comment('Expected result: Sorting is working');
+
+        $I->checkGridButtonsForItems();
+        $I->comment('Expected result: In the grid the buttons are active');
+
+        $I->clickOnImg();
+        $I->comment('Expected result: Navigate to product card ');
+
+        $I->clickQuickView();
+        $I->comment('Expected result: Quick view is open ');
+
+
+
+
+
     }
 
 
