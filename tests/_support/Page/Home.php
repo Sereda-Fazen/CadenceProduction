@@ -169,10 +169,10 @@ class Home
         $I->moveBack();
         $I->scrollDown(200);
         $I->waitForElementVisible(self::$addToCart,10);
-        $I->click(self::$addToCart);
-        $I->waitForElement(self::$cancel, 60);
-        $I->click(self::$cancel);
-        $I->moveBack();
+        //$I->click(self::$addToCart);
+       // $I->waitForElement(self::$cancel, 60);
+       // $I->click(self::$cancel);
+      //  $I->moveBack();
     }
 
     public function homePageLinks()

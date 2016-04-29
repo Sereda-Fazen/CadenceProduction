@@ -49,7 +49,7 @@ class MainPages
     }
     public function newItems(){
         $I = $this->tester;
-        $I->amOnPage(self::$URL);
+        
         $I = $this->tester;
         $I->click(self::$newItems);
     }
