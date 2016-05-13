@@ -7,33 +7,27 @@ class TestCest
 {
 
 
-    function menPage(Step\Acceptance\ItemsSteps $I, \Page\Men $menPage)
-    {
-        $menPage->men();
+    function checkOnValidationForCreditCard(Step\Acceptance\ItemsSteps  $I) {
+        $I->processAddToCart();
+        $I->comment('Expected result: Please specify payment method');
 
-        $I->checkForPriceItems();
-        $I->comment('Expected result: Check the price');
+        $I->checkCardType();
+        $I->comment('Expected result: Card type does not match credit card number');
 
-        $I->allShowingItem();
-        $I->comment('Expected result: Showing products and check select options');
+        $I->checkEmptyNumberCard();
+        $I->comment('Expected result: Card type does not match credit card number');
 
-        $I->checkSortBy();
-        $I->comment('Expected result: Sorting is working');
+        $I->checkInvalidCardType();
+        $I->comment('Expected result: Please enter a valid credit card number');
 
-        $I->checkGridButtonsForItems();
-        $I->comment('Expected result: In the grid the buttons are active');
-
-        $I->clickOnImg();
-        $I->comment('Expected result: Navigate to product card ');
-
-        $I->clickQuickView();
-        $I->comment('Expected result: Quick view is open ');
-
-
-
-
-
+        $I->checkInvalidMonthWithYear();
+        $I->comment('Expected result: Incorrect credit card expiration date');
+/*
+        $I->checkInvalidVerificationNumber();
+        $I->comment('Expected result: Please enter a valid credit card verification number');
+*/
     }
+
 
 
 

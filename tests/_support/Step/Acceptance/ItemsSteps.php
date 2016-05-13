@@ -343,11 +343,13 @@ class ItemsSteps extends \AcceptanceTester
 
         //check empty all fields
         $I->waitForElementVisible('#payment-buttons-container > button.button.continueRed > span > span',10);
-        $I->click('#p_method_paypal_direct');
         $I->click('#payment-buttons-container > button.button.continueRed > span > span');
-        $I->waitForElementVisible('#payment-buttons-container > button.button.continueRed > span > span', 3);
+
+        //$I->click('#p_method_paypal_direct');
+       // $I->click('#payment-buttons-container > button.button.continueRed > span > span');
+
         $I->scrollDown(200);
-        $I->see('This is a required field.', '#advice-required-entry-paypal_direct_cc_type');
+        $I->see('This is a required field.', '#advice-required-entry-stripe_cc_owner');
         $I->wait(2);
     }
     public function checkEmptyNumberCard()
@@ -355,20 +357,20 @@ class ItemsSteps extends \AcceptanceTester
         $I = $this;
         // check only one field - card type
 
-        $I->click('#paypal_direct_cc_type');
-        $I->click('//*[@id="paypal_direct_cc_type"]/option[2]');
+        $I->click('#stripe_cc_type');
+        $I->click('//*[@id="stripe_cc_type"]/option[2]');
         $I->click('#payment-buttons-container > button.button.continueRed > span > span');
         $I->wait(2);
-        $I->see('Card type does not match credit card number.', '#advice-validate-cc-type-select-paypal_direct_cc_type');
+        $I->see('Card type does not match credit card number.', '#advice-validate-cc-type-select-stripe_cc_type');
     }
 
     public function checkInvalidCardType()
     {
         $I = $this;
         //check number invalid
-        $I->fillField('#paypal_direct_cc_number', '1234567');
+        $I->fillField('#stripe_cc_number', '1234567');
         $I->click('#payment-buttons-container > button.button.continueRed > span > span');
-        $I->see('Please enter a valid credit card number.', '#advice-validate-cc-number-paypal_direct_cc_number');
+        $I->see('Please enter a valid credit card number.', '#advice-validate-cc-number-stripe_cc_number');
         $I->wait(2);
     }
 
@@ -377,16 +379,16 @@ class ItemsSteps extends \AcceptanceTester
         $I = $this;
 
         // check month and year
-        $I->click('#paypal_direct_expiration');
+        $I->click('#stripe_expiration');
         $I->wait(2);
-        $I->click('//*[@id="paypal_direct_expiration"]/option[1]');
-        $I->click('#paypal_direct_expiration_yr');
+        $I->click('//*[@id="stripe_expiration"]/option[1]');
+        $I->click('#stripe_expiration_yr');
         $I->wait(2);
-        $I->click('//*[@id="paypal_direct_expiration_yr"]/option[2]');
+        $I->click('//*[@id="stripe_expiration_yr"]/option[2]');
         $I->click('#payment-buttons-container > button.button.continueRed > span > span');
-        $I->see('Incorrect credit card expiration date.', '#advice-validate-cc-exp-paypal_direct_expiration');
+        $I->see('Incorrect credit card expiration date.', '#advice-validate-cc-exp-stripe_expiration');
     }
-
+/*
     public function checkInvalidVerificationNumber()
     {
         $I = $this;
@@ -401,30 +403,35 @@ class ItemsSteps extends \AcceptanceTester
         $I->amOnPage('/');
 
     }
-
+*/
 
     public function checkAmericanExpress(){
         $I = $this;
 
-        $I->click('#p_method_paypal_direct');
+        $I->fillField('//*[@id="stripe_cc_owner"]', 'Test');
+
+        //*[@id="stripe_cc_owner"]
 
         // Cards
-        $I->click('#paypal_direct_cc_type');
-        $I->click('//*[@id="paypal_direct_cc_type"]/option[2]');
-        $I->fillField('#paypal_direct_cc_number', '378282246310005');
+        $I->click('#stripe_cc_type');
+        $I->click('//*[@id="stripe_cc_type"]/option[2]');
+        $I->fillField('#stripe_cc_number', '378282246310005');
         //  month
-        $I->click('#paypal_direct_expiration');
-        $I->click('//*[@id="paypal_direct_expiration"]/option[2]');
+        $I->click('#stripe_expiration');
+        $I->click('//*[@id="stripe_expiration"]/option[2]');
         //year
-        $I->click('#paypal_direct_expiration_yr');
-        $I->click('//*[@id="paypal_direct_expiration_yr"]/option[3]');
+        $I->click('#stripe_expiration_yr');
+        $I->click('//*[@id="stripe_expiration_yr"]/option[3]');
         //what is this
+        /*
         $I->click('a.cvv-what-is-this');
         $I->waitForElement('div.tool-tip-content > img');
         $I->click('#payment-tool-tip-close');
         $I->fillField('#paypal_direct_cc_cid', '1234');
+        */
         //continue
         $I->click('#payment-buttons-container > button.button.continueRed > span > span');
+        
         //$I->waitForElement('div.cart-empty > p:nth-of-type(1)',10);
 
 
@@ -433,23 +440,19 @@ class ItemsSteps extends \AcceptanceTester
     public function checkVisa(){
         $I = $this;
 
-        $I->click('#p_method_paypal_direct');
+        $I->fillField('//*[@id="stripe_cc_owner"]', 'Test');
 
         // Cards
-        $I->click('#paypal_direct_cc_type');
-        $I->click('//*[@id="paypal_direct_cc_type"]/option[3]');
-        $I->fillField('#paypal_direct_cc_number', '4012888888881881');
+        $I->click('#stripe_cc_type');
+        $I->click('//*[@id="stripe_cc_type"]/option[3]');
+        $I->fillField('#stripe_cc_number', '4242424242424242');
         //  month
-        $I->click('#paypal_direct_expiration');
-        $I->click('//*[@id="paypal_direct_expiration"]/option[2]');
+        $I->click('#stripe_expiration');
+        $I->click('//*[@id="stripe_expiration"]/option[2]');
         //year
-        $I->click('#paypal_direct_expiration_yr');
-        $I->click('//*[@id="paypal_direct_expiration_yr"]/option[3]');
-        //what is this
-        $I->click('a.cvv-what-is-this');
-        $I->waitForElement('div.tool-tip-content > img');
-        $I->click('#payment-tool-tip-close');
-        $I->fillField('#paypal_direct_cc_cid', '123');
+        $I->click('#stripe_expiration_yr');
+        $I->click('//*[@id="stripe_expiration_yr"]/option[3]');
+
         //continue
         $I->click('#payment-buttons-container > button.button.continueRed > span > span');
         //$I->waitForElement('div.cart-empty > p:nth-of-type(1)',10);
@@ -460,23 +463,19 @@ class ItemsSteps extends \AcceptanceTester
     {
         $I = $this;
 
-        $I->click('#p_method_paypal_direct');
+        $I->fillField('//*[@id="stripe_cc_owner"]', 'Test');
 
         // Cards
-        $I->click('#paypal_direct_cc_type');
-        $I->click('//*[@id="paypal_direct_cc_type"]/option[4]');
-        $I->fillField('#paypal_direct_cc_number', '5105105105105100');
+        $I->click('#stripe_cc_type');
+        $I->click('//*[@id="stripe_cc_type"]/option[4]');
+        $I->fillField('#stripe_cc_number', '5555555555554444');
         //  month
-        $I->click('#paypal_direct_expiration');
-        $I->click('//*[@id="paypal_direct_expiration"]/option[2]');
+        $I->click('#stripe_expiration');
+        $I->click('//*[@id="stripe_expiration"]/option[2]');
         //year
-        $I->click('#paypal_direct_expiration_yr');
-        $I->click('//*[@id="paypal_direct_expiration_yr"]/option[3]');
-        //what is this
-        $I->click('a.cvv-what-is-this');
-        $I->waitForElement('div.tool-tip-content > img');
-        $I->click('#payment-tool-tip-close');
-        $I->fillField('#paypal_direct_cc_cid', '957');
+        $I->click('#stripe_expiration_yr');
+        $I->click('//*[@id="stripe_expiration_yr"]/option[3]');
+ 
         //continue
         $I->click('#payment-buttons-container > button.button.continueRed > span > span');
       //  $I->waitForElement('div.cart-empty > p:nth-of-type(1)',10);

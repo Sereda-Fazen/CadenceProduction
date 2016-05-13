@@ -17,7 +17,7 @@ class CheckoutGuestMasterCardCest
         $creditCardPageVisa->creditCard();
         $I->checkMasterCard();
 
-        $creditCardPageVisa->orderView();
+        $creditCardPageVisa->orderViewAlert();
         $I->comment('Expected result: PayPal gateway has rejected request.');
     }
 
