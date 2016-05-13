@@ -7,25 +7,19 @@ class TestCest
 {
 
 
-    function checkOnValidationForCreditCard(Step\Acceptance\ItemsSteps  $I) {
-        $I->processAddToCart();
-        $I->comment('Expected result: Please specify payment method');
+    function enterNewPass (Step\Acceptance\LoginSteps $I)
+    {
+        $I->gMailAuth();
+        $I->remoteWindow();
+        $I->newPass();
+        $I->comment('Expected result: Your password has been updated');
+    }
 
-        $I->checkCardType();
-        $I->comment('Expected result: Card type does not match credit card number');
-
-        $I->checkEmptyNumberCard();
-        $I->comment('Expected result: Card type does not match credit card number');
-
-        $I->checkInvalidCardType();
-        $I->comment('Expected result: Please enter a valid credit card number');
-
-        $I->checkInvalidMonthWithYear();
-        $I->comment('Expected result: Incorrect credit card expiration date');
-/*
-        $I->checkInvalidVerificationNumber();
-        $I->comment('Expected result: Please enter a valid credit card verification number');
-*/
+    function invalidRepeatPass (Step\Acceptance\LoginSteps $I)
+    {
+        $I->moveBack();
+        $I->see('Your password reset link has expired.','li.error-msg');
+        $I->comment('Expected result: Your password has been updated');
     }
 
 

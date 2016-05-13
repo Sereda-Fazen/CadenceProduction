@@ -24,9 +24,10 @@ class CheckoutValidationOnCreditCardCest
 
             $I->checkInvalidMonthWithYear();
             $I->comment('Expected result: Incorrect credit card expiration date');
-
+/*
             $I->checkInvalidVerificationNumber();
             $I->comment('Expected result: Please enter a valid credit card verification number');
+*/
         }
 
 
