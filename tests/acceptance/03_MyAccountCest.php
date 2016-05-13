@@ -16,7 +16,7 @@ class MyAccountCest
 
         $myAccountPage->accountInfo('alex', 'sereda', 'cadence_watch@yahoo.com', '123456', '123456', '123456');
         $I->see('The account information has been saved.', 'li.success-msg');
-
+        
         $myAccountPage->accountInfo('', '', '', '', '', '');
         $I->see('This is a required field.', '#advice-required-entry-email');
         $I->comment('Expected result: These are required fields');
@@ -25,6 +25,7 @@ class MyAccountCest
 
     function MyAccountAddress(\Step\Acceptance\LoginSteps $I, \Page\MyAccount $MyAccountPage)
     {
+        
         $I->stepsLoginIn();
         $MyAccountPage->accountAddress('alex', 'sereda', '+39063636369', 'Dostoevskogo22v', 'Kharkov', '54423', 'Kharkov');
         $I->waitForElement('li.success-msg');
