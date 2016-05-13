@@ -1,8 +1,6 @@
 <?php
 use Step\Acceptance;
-/**
- * @group checkoutGuestPayPal
- */
+
 class CheckoutPayPalCest
 {
         /**
