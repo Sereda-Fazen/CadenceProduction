@@ -252,10 +252,12 @@ class LoginSteps extends \AcceptanceTester
         $I->fillField('//*[@id="login-username"]', 'cadence_watch@yahoo.com');
 
         $I->click('//*[@id="login-signin"]');
+
         //$I->seeElement('//div[@id="mbr-login-error"]');
         $I->waitForElementVisible('//*[@id="login-passwd"]');
         $I->fillField('//*[@id="login-passwd"]', '!1qwerty');
         $I->click('//*[@id="login-signin"]');
+
         $I->waitForElement('//*[@class="list-view-items-page"]');
         $I->see('Cadence Watch Company', 'div.name.first');
         $I->click('div.name.first');
