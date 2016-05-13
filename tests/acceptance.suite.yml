@@ -23,13 +23,18 @@ modules:
             #clear_cookies: false
 
             capabilities:
+             browserstack.autoWait: 60
              browserstack.user: 'cadencewatch1'
              browserstack.key: 'RG12s8tJvQ9p3pZuxWzf'
+             resolution: 1920x1080
+
+
              browserstack.debug: 'true'
              #applicationCacheEnabled: false
              unexpectedAlertBehaviour: 'accept'
              pageLoadStrategy: 'eager'
-             #platform: 'XP'
+             os: 'WINDOWS'
+             os_version: 7
 
 env:
 
